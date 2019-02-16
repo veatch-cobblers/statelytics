@@ -54,7 +54,6 @@ class ScatterPlot extends Component{
 					.attr("width", w)
 					.attr("height", h);
 					
-		console.log(data);
 		//x axis
 		svg.append("g")
 			.attr("class", "x axis")	
@@ -79,7 +78,6 @@ class ScatterPlot extends Component{
 			.attr("cy", function(d) {
 				return yScale(d.employed);
 			})
-			.on("mouseover", (d) => console.log(d))
 			.attr("r", 20)
 			.attr("fill", "green")
 			.attr("opacity", .5)
