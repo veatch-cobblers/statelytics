@@ -14,8 +14,6 @@ script:
   - echo "Building!!"
   - npm run build
 
-deploy:
-  - firebase deploy --token $FIREBASE_TOKEN --non-interactive
-
 after_success:
+  - firebase deploy --token $FIREBASE_TOKEN --non-interactive
   - echo "Succes - Deployed"
