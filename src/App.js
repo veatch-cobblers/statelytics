@@ -17,9 +17,10 @@ class App extends Component {
   render() {
     return (
         <div>
+            <Map id={"FIPStxt"} rankingMetric={'Unemployment_rate_2008'}/>
 
                 <Header/>
-            
+
             <div>
                <StyledJumbo >
                    <Container>
