@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {json, max, scaleLinear, select} from "d3";
+import {json, select} from "d3";
 import * as topojson from "topojson";
 import * as d3 from "d3";
 
