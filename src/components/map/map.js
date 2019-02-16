@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {csv, json, max, scaleLinear, select} from "d3";
+import {csv, json, select} from "d3";
 import * as topojson from "topojson";
 import * as d3 from "d3";
 import unemployed_data_csv from '../../data/unemployment_income_2007_to_2017.csv';
@@ -25,9 +25,9 @@ class Map extends Component {
 
         var path = d3.geoPath();
 
-        var x = d3.scaleLinear()
-            .domain([1, 10])
-            .rangeRound([600, 860]);
+        // var x = d3.scaleLinear()
+        //     .domain([1, 10])
+        //     .rangeRound([600, 860]);
 
         var color = d3.scaleThreshold()
             .domain(d3.range(2, 10))
