@@ -28,47 +28,22 @@ class Map extends Component{
             .domain([1, 10])
             .rangeRound([600, 860]);
 
-        var color = d3.scaleThreshold()
-            .domain(d3.range(2, 10))
-            .range(d3.schemeBlues[9]);
-
         var g = select(node).append("g")
             .attr("class", "key")
             .attr("transform", "translate(0,40)");
 
-        select(node).selectAll("rect")
-            .data(color.range().map(function(d) {
-                d = color.invertExtent(d);
-                if (d[0] == null) d[0] = x.domain()[0];
-                if (d[1] == null) d[1] = x.domain()[1];
-                return d;
-            }))
-            .enter().append("rect")
-            .attr("height", 8)
-            .attr("x", function(d) { return x(d[0]); })
-            .attr("width", function(d) { return x(d[1]) - x(d[0]); })
-            .attr("fill", function(d) { return color(d[0]); });
+        var color = d3.scaleThreshold()
+            .domain(d3.range(2, 10))
+            .range(d3.schemeGreens[9]);
 
-        g.append("text")
-            .attr("class", "caption")
-            .attr("x", x.range()[0])
-            .attr("y", -6)
-            .attr("fill", "#000")
-            .attr("text-anchor", "start")
-            .attr("font-weight", "bold")
-            .text("Unemployment rate");
-
-        g.call(d3.axisBottom(x)
-            .tickSize(13)
-            .tickFormat(function(x, i) { return i ? x : x + "%"; })
-            .tickValues(color.domain()))
-            .select(".domain")
-            .remove();
-
-        let unemployment = d3.map();
+        let rankingMetric = d3.map();
 
         Promise.all([
-            csv(unemployed_data_csv, (d) =>{  console.log(d); unemployment.set(d['FIPStxt'], d['Unemployment_rate_2017'])}),
+            csv(unemployed_data_csv, (d) =>{
+                if(d[this.props.rankingMetric] !== undefined){
+                    console.log(d);
+                    rankingMetric.set(d[this.props.id], d[this.props.rankingMetric].replace(/[^0-9.-]+/g, ""))
+                }}),
             json("https://d3js.org/us-10m.v1.json")])
             .then( (files) => {
                 let us = files[1];
@@ -77,7 +52,7 @@ class Map extends Component{
                         .selectAll("path")
                         .data(topojson.feature(us, us.objects.counties).features)
                         .enter().append("path")
-                        .attr("fill", function(d) { return color(d.rate = unemployment.get(d.id)); })
+                        .attr("fill", function(d) { return color(d.rate = parseInt(rankingMetric.get(d.id))); })
                         .on("mouseover", (d) => console.log(d))
                         .attr("d", path)
                         .append("title")
