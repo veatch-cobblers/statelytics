@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Scatterplot from "./components/scatterplot/scatterplot.js"
+import Scatterplot from "./components/scatter-plot/scatter-plot.js"
 
 class App extends Component {
   render() {
