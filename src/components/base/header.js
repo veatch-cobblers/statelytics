@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import image from '../assets/trianglify.png';
 import logo from '../assets/logo_transparent.png';
+import Navbar from './navbar';
 
 const StyledDiv = styled.div`
 display:flex;
@@ -18,6 +19,7 @@ height:300px;
 const Header = () => (
     <StyledDiv>
         <StyledLogo src={logo}/>
+        <Navbar/>
     </StyledDiv>
 
 )

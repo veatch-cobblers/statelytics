@@ -8,7 +8,10 @@ import styled from 'styled-components';
 
 const StyledJumbo = styled(Jumbotron)`
 border:10px;
+background:rgba(204, 204, 204, 0);
 `
+
+
 
 class App extends Component {
   render() {
@@ -18,7 +21,7 @@ class App extends Component {
                 <Header/>
             
             <div>
-               <StyledJumbo style={{background: 'rgba(204, 204, 204, 0)'}}>
+               <StyledJumbo >
                    <Container>
                    <Map />
                    </Container>
