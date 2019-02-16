@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "staging": "statelytics",
+    "default": "statelytics"
+  }
+}
