@@ -65,6 +65,8 @@ class Map extends Component{
             .select(".domain")
             .remove();
 
+
+
         console.log("here");
             json("https://d3js.org/us-10m.v1.json").then( (us) => {
                 console.log("inside");
