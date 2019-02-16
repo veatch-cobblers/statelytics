@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import {json, max, scaleLinear, select} from "d3";
+import {csv, json, max, scaleLinear, select} from "d3";
 import * as topojson from "topojson";
 import * as d3 from "d3";
-
+import unemployed_data_csv from '../../data/unemployment_income_2007_to_2017.csv';
 
 class Map extends Component{
 
@@ -65,19 +65,19 @@ class Map extends Component{
             .select(".domain")
             .remove();
 
+        let unemployment = d3.map();
 
-
-        console.log("here");
-            json("https://d3js.org/us-10m.v1.json").then( (us) => {
-                console.log("inside");
-
-                console.log(us);
+        Promise.all([
+            csv(unemployed_data_csv, (d) =>{  console.log(d); unemployment.set(d['FIPStxt'], d['Unemployment_rate_2017'])}),
+            json("https://d3js.org/us-10m.v1.json")])
+            .then( (files) => {
+                let us = files[1];
                     select(node).append("g")
                         .attr("class", "counties")
                         .selectAll("path")
                         .data(topojson.feature(us, us.objects.counties).features)
                         .enter().append("path")
-                        .attr("fill", "red")
+                        .attr("fill", function(d) { return color(d.rate = unemployment.get(d.id)); })
                         .on("mouseover", (d) => console.log(d))
                         .attr("d", path)
                         .append("title")
@@ -88,7 +88,6 @@ class Map extends Component{
                         .attr("class", "states")
                         .attr("d", path);
                 });
-
 
     }
 
