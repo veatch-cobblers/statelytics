@@ -17,7 +17,6 @@ class ScatterPlot extends Component{
         this.createScatterPlot();
     }
 
-
     createScatterPlot(){
         //width and height
 		var w = 1000;
@@ -55,7 +54,6 @@ class ScatterPlot extends Component{
 					.attr("width", w)
 					.attr("height", h);
 					
-		
 		console.log(data);
 		//x axis
 		svg.append("g")
@@ -68,31 +66,6 @@ class ScatterPlot extends Component{
 			.attr("class", "y axis")	
 			.attr("transform", "translate(" + padding + ", 0)")
 			.call(yAxis);
-
-		
-
-        //    .attr(“class”, “dot”)
-        //    .attr(“r”, function (d) {
-        //        return d.r;
-        //    })
-        //    .attr(“cx”, function (d) {
-        //        return x(d.x);
-        //    })
-        //    .attr(“cy”, function (d) {
-        //        return y(d.y);
-        //    })
-        //    .style(“fill”, function (d) {
-        //        return d.c;
-        //    });
-        //    gdots.append(“text”).text(function(d){
-        //        return d.name;
-        //    })
-        //    .attr(“x”, function (d) {
-        //        return x(d.x);
-        //    })
-        //    .attr(“y”, function (d) {
-        //        return y(d.y);
-        //    });
 			
 			var circle = svg.selectAll("circle")
 			.data(data)
@@ -116,9 +89,6 @@ class ScatterPlot extends Component{
 			.attr("y", (d) => yScale(d.employed) + 5)
 			.text((d) => d.state) 
 			.attr("text-anchor", "middle") 
-		
-			
-	
 		});
     }
 	
