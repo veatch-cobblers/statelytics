@@ -12,11 +12,6 @@ flex-direction: column;
 align-items: center;
 `
 
-const StyledMapFrame = styled(MapFrame)`
-justify-content: center;
-border: 5px solid black;
-`
-
 
 
 class App extends Component {

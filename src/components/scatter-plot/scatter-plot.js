@@ -75,9 +75,9 @@ class ScatterPlot extends Component{
 			.domain(d3.extent(data, function(d) { return d.yMetric; }))
 			.range([h - padding, padding]);
 		
-		var xAxis = d3.axisBottom().scale(xScale);
+		// var xAxis = d3.axisBottom().scale(xScale);
 		
-		var yAxis = d3.axisLeft().scale(yScale).ticks(5);
+		// var yAxis = d3.axisLeft().scale(yScale).ticks(5);
 		
 		//create svg element
 
