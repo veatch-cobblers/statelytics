@@ -16,7 +16,11 @@ class Map extends Component {
         this.createMap();
     }
 
-    componentWillUpdate() {
+    componentDidUpdate() {
+        this.createMap();
+    }
+
+    componentWillUpdate(){
         this.createMap();
     }
 
@@ -59,10 +63,12 @@ class Map extends Component {
                     })
                     .attr("d", path)
                     .append("title")
-                    .on("click", (d) => {console.log(d); return this.props.changeView(d)})
                     .text(function (d) {
                         return d.rate + "%";
                     });
+
+                // select(node).selectAll("path")
+                //     .on("hover", () => console.log("hover"));
 
                 select(node).append("path")
                     .datum(topojson.mesh(us, us.objects.states, function (a, b) {
@@ -70,13 +76,16 @@ class Map extends Component {
                     }))
                     .attr("class", "states")
                     .attr("d", path);
-            });
+            })
     }
 
     render() {
-        return <svg ref={node => this.node = node}
+        return(
+        <div>
+        <svg ref={node => this.node = node}
                     width={960} height={600}>
         </svg>
+        </div>);
     }
 }
 

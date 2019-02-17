@@ -10,7 +10,7 @@ class StateFrame extends Component{
         this.state = {
             hiding: false,
             stateData: {}
-        }
+        };
 
         this.onchange = this.onchange.bind(this);
     }
