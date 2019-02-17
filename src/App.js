@@ -3,6 +3,7 @@ import './components/map/unemployment_us_map.css';
 import Map from "./components/map/map";
 import {Jumbotron, Container, Button} from 'reactstrap';
 import HeaderNav from "./components/base/headerNav";
+import ScatterPlot from "./components/scatter-plot/scatter-plot";
 
 import styled from 'styled-components';
 
@@ -24,7 +25,8 @@ class App extends Component {
             <div>
                <StyledJumbo >
                    <Container>
-                   <Map id={"FIPStxt"} rankingMetric={'Unemployment_rate_2008'}/>
+                       <Map id={"FIPStxt"} rankingMetric={'Unemployment_rate_2008'}/>
+                       <ScatterPlot/>
                    </Container>
                </StyledJumbo>
             </div>
