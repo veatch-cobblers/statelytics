@@ -3,16 +3,7 @@ import * as d3 from 'd3';
 import data from '../../data/unemployment_income_2007_to_2017.csv';
 import {select} from "d3";
 import colors from '../../data/colors.js'
-import {Jumbotron, Container} from 'reactstrap';
 import Category from '../../components/category/category.js'
-import styled from "styled-components";
-
-const StyledJumbo = styled(Jumbotron)`
-background:none !important;
-display:flex;
-justify-content: center;
-  align-items: center;
-`
 
 class ScatterPlot extends Component{
 
@@ -119,13 +110,10 @@ class ScatterPlot extends Component{
     render(){
         return(
         	<div>
-			<StyledJumbo>
-			<Container>
-			{this.state.openCategory ? <Category selectedState={this.state.stateProps}/> : <svg ref={node => this.node = node} width={1000} height={600}></svg>}
-			</Container>
-			</StyledJumbo>
-			</div>
 
+
+			{this.state.openCategory ? <Category selectedState={this.state.stateProps}/> : <svg ref={node => this.node = node} width={1000} height={600}></svg>}
+			</div>
         );
     }
 }
