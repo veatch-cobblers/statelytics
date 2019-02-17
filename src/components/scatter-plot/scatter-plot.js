@@ -3,13 +3,29 @@ import * as d3 from 'd3';
 import data from '../../data/unemployment_income_2007_to_2017.csv';
 import {select} from "d3";
 import colors from '../../data/colors.js'
+import Category from '../../components/category/category.js'
 
 class ScatterPlot extends Component{
 
     constructor(props){
         super(props);
-        this.createScatter = this.createScatterPlot.bind(this);
+
+        this.state ={
+        	openCategory : false,
+			stateProps : {},
+		}
+		this.createScatter = this.createScatterPlot.bind(this);
+        this.onbuttonClick = this.onButtonClick.bind(this);
     }
+
+    onButtonClick = (d) => {
+    	console.log("Clicked");
+		this.setState({
+			openCategory: true,
+			stateProps: d.state,
+		});
+		console.log("State" + this.state.openCategory);
+	}
 
     componentDidMount(){
         this.createScatterPlot();
@@ -84,9 +100,7 @@ class ScatterPlot extends Component{
 			.attr("r", 20)
 			.attr("fill", (d) => colors[d.state.toUpperCase()])
 			.attr("opacity", .5)
-			.on("click", function(d) {
-				alert(d.state);
-			});
+			.on("click", d => this.onbuttonClick(d));
 
 			circle.append("text")
 			.attr("x", (d) => xScale(d.xMetric))
@@ -100,7 +114,11 @@ class ScatterPlot extends Component{
 	
     render(){
         return(
-            <svg ref={node => this.node = node} width={1000} height={600}></svg>
+        	<div>
+
+
+			{this.state.openCategory ? <Category selectedState={this.state.stateProps}/> : <svg ref={node => this.node = node} width={1000} height={600}></svg>}
+			</div>
         );
     }
 }

@@ -25,10 +25,6 @@ const HeaderNav = (props) => (
             <NavItem>
                 <NavLink tag={Link} to="/state">State</NavLink>
             </NavItem>
-            <NavItem>
-                <NavLink>Category</NavLink>
-            </NavItem>
-
         </Nav>
     </StyledNavBar>
 )
