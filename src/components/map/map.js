@@ -16,12 +16,12 @@ class Map extends Component {
         this.createMap();
     }
 
-    componentWillMount() {
+    componentWillUpdate() {
         this.createMap();
     }
 
     createMap() {
-        const node = this.node
+        const node = this.node;
 
         var path = d3.geoPath();
 
@@ -43,6 +43,7 @@ class Map extends Component {
             }),
             json("https://d3js.org/us-10m.v1.json")])
             .then((files) => {
+                console.log(this.props.rankingMetric)
                 let us = files[1];
 
                 // select(node).selectAll("rect")
