@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as d3 from 'd3';
 import data from '../../data/unemployment_income_2007_to_2017.csv';
+import {select} from "d3";
 
 class ScatterPlot extends Component{
 
@@ -19,10 +20,10 @@ class ScatterPlot extends Component{
 
     createScatterPlot(){
         //width and height
+        const node = this.node
 		var w = 1000;
 		var h = 600;
 		var padding = 75;
-		var i = 0;
 		d3.csv(data, (row) => {
 			return {
 				county_code: +row['FIPStxt'],
@@ -33,7 +34,7 @@ class ScatterPlot extends Component{
 		}
 		).then(data => {
 			
-			data = data.filter(d => (d.county_code % 1000 == 0))
+			data = data.filter(d => (d.county_code % 1000 === 0))
 			data = data.filter(d => !(isNaN(d.employed) || isNaN(d.median_income) || d.median_income === 0))
 			
 			var xScale = d3.scaleLinear()
@@ -49,24 +50,21 @@ class ScatterPlot extends Component{
 		var yAxis = d3.axisLeft().scale(yScale).ticks(5);
 		
 		//create svg element
-		var svg = d3.select("body")
-					.append("svg")
-					.attr("width", w)
-					.attr("height", h);
+
 					
 		//x axis
-		svg.append("g")
+		select(node).append("g")
 			.attr("class", "x axis")	
 			.attr("transform", "translate(0," + (h - padding) + ")")
 			.call(xAxis);
 		
 		//y axis
-		svg.append("g")
+		select(node).append("g")
 			.attr("class", "y axis")	
 			.attr("transform", "translate(" + padding + ", 0)")
 			.call(yAxis);
 			
-			var circle = svg.selectAll("circle")
+			var circle = select(node).selectAll("circle")
 			.data(data)
 			.enter()
 			.append("g")
@@ -92,7 +90,7 @@ class ScatterPlot extends Component{
 	
     render(){
         return(
-            <svg ref={node => this.node = node} width={400} height={400}></svg>
+            <svg ref={node => this.node = node} width={1000} height={600}></svg>
         );
     }
 }
