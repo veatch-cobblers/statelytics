@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import './components/map/unemployment_us_map.css';
 import Map from "./components/map/map";
-import {Jumbotron, Container} from 'reactstrap';
+import {Jumbotron, Container, Row, Col} from 'reactstrap';
 import HeaderNav from "./components/base/headerNav";
 import ScatterPlot from "./components/scatter-plot/scatter-plot";
 
 import styled from 'styled-components';
 
 const StyledJumbo = styled(Jumbotron)`
-border:10px;
-background:rgba(204, 204, 204, 0);
+background:none !important;
 `
 
 
@@ -25,8 +24,14 @@ class App extends Component {
             <div>
                <StyledJumbo >
                    <Container>
-                       <Map id={"FIPStxt"} rankingMetric={'Unemployment_rate_2008'}/>
-                       <ScatterPlot/>
+                       <Row>
+                           <Col>
+                               <Map id={"FIPStxt"} rankingMetric={'Unemployment_rate_2008'}/>
+                           </Col>
+                           <Col>
+                                <ScatterPlot/>
+                           </Col>
+                       </Row>
                    </Container>
                </StyledJumbo>
             </div>
