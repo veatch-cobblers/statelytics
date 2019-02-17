@@ -45,7 +45,7 @@ class Map extends Component {
             json("https://d3js.org/us-10m.v1.json")])
             .then((files) => {
                 let us = files[1];
-                var div = select(node).append("div")
+                select(node).append("div")
                     .attr("class", "tooltip")
                     .style("opacity", 0);
                 let color = d3.scaleOrdinal()
