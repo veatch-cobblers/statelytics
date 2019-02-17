@@ -1,10 +1,9 @@
 import React, {Component} from 'react'
 import {csv, extent, json, select} from "d3";
 import * as topojson from "topojson";
-
+import './map.css'
 import * as d3 from "d3";
 import unemployed_data_csv from '../../data/cleanedCounties.csv';
-
 
 class Map extends Component {
 
@@ -28,6 +27,10 @@ class Map extends Component {
     createMap() {
         const node = this.node;
         select(node).selectAll('*').remove();
+
+
+
+
         var path = d3.geoPath();
 
         var x = d3.scaleLinear()
@@ -37,7 +40,6 @@ class Map extends Component {
         let rankingMetric = d3.map();
         Promise.all([
             csv(unemployed_data_csv, (d) => {
-                console.log(this.props.rankingMetric);
                 if (d[this.props.rankingMetric] !== undefined) {
                     let metric = +d[this.props.rankingMetric].replace(/[^0-9.-]+/g, "");
                     rankingMetric.set(d[this.props.id], metric);
@@ -46,11 +48,9 @@ class Map extends Component {
             json("https://d3js.org/us-10m.v1.json")])
             .then((files) => {
                 let us = files[1];
-
-                // var color = d3.scaleThreshold()
-                //     .domain(d3.range(2,10))
-                //     .range(d3.schemeGreens[9]);
-
+                var div = select(node).append("div")
+                    .attr("class", "tooltip")
+                    .style("opacity", 0);
                 let color = d3.scaleOrdinal()
                     .domain(extent(us, (d) => rankingMetric.get(d.id)))
                     .range(this.props.color);

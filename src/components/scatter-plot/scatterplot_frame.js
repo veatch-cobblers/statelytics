@@ -60,6 +60,7 @@ class ScatterplotFrame extends Component{
                         <ScatterPlot changeView={this.props.onChange} yMetric={axis_titles[this.state.x_index]} xMetric={axis_titles[this.state.y_index]}/>
                     </div>
                 </StyledContainer>
+                0 ->
                 <Axis axisStyle={"x_axis"} title={axis_titles[this.state.x_index]} onChange={this.onXchange}/>
             </div>
 

@@ -5,7 +5,6 @@ import Axis from "../axis";
 import styled from "styled-components";
 import {schemeBlues, schemeGreens, schemePurples} from "d3-scale-chromatic";
 import {schemeOranges, schemeReds} from "d3";
-
 const StyledContainer = styled(Container)`
 display: flex;
 border: 1px solid black;
@@ -44,7 +43,6 @@ class MapFrame extends Component {
         if (value === y_titles.length || value < 0) {
             value = value < 0 ? (y_titles.length - 1) : 0;
         }
-        console.log(value);
         this.setState({
             y_index: value
         });
