@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './components/map/unemployment_us_map.css';
 import Map from "./components/map/map";
-import {Jumbotron, Container, Button} from 'reactstrap';
+import {Jumbotron, Container} from 'reactstrap';
 import HeaderNav from "./components/base/headerNav";
 import ScatterPlot from "./components/scatter-plot/scatter-plot";
 
