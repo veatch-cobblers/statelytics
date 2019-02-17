@@ -15,9 +15,14 @@ height: 250px;
  align-items: center;
 `
 
-const StyledText = styled.p`
+const StyledAreaCodeText = styled.p`
 font-size: 60px;
 color: white;
+`
+
+const StyledAreaNameText = styled.p`
+color:white;
+font-size:30px;
 `
 
 const StyledBody = styled.div`
@@ -56,40 +61,40 @@ class Category extends Component {
     }
 
     onClick(value){
-        alert(value);
         this.props.onAxisChange(value);
     }
 
     render() {
         return (<StyledBody><Circle style={{opacity: .5, backgroundColor: colors[this.props.selectedState.state.toUpperCase()]}}>
-        <StyledText>{this.props.selectedState.state}</StyledText>
+        <StyledAreaCodeText>{this.props.selectedState.state}</StyledAreaCodeText>
+            <StyledAreaNameText>{this.props.selectedState.areaName}</StyledAreaNameText>
         </Circle>
             <br/>
             <StyledButtonRow>
                 <StyledButtonBody>
                 <Button outline color='primary' onClick={() => this.onClick('Employed')}>Employed</Button>
                     <br/>
-                <Button outline color='primary'>Unemployed</Button>
+                <Button outline color='primary' onClick={() => this.onClick('Unemployed')}>Unemployed</Button>
                     <br/>
-                <Button outline color='primary'>Median Income</Button>
-                    <br/>
-                </StyledButtonBody>
-                <DividerBlock/>
-                <StyledButtonBody>
-                <Button outline color='primary'>Labor Force</Button>
-                    <br/>
-                <Button outline color='primary'>Tax</Button>
-                    <br/>
-                <Button outline color='primary'>Homeless Pop</Button>
+                <Button outline color='primary' onClick={() => this.onClick('Median Household Income')}>Median Income</Button>
                     <br/>
                 </StyledButtonBody>
                 <DividerBlock/>
                 <StyledButtonBody>
-                <Button outline color='primary'>Crime</Button>
+                <Button outline color='primary' onClick={() => this.onClick('Civilian labor force')}>Labor Force</Button>
                     <br/>
-                <Button outline color='primary'>Avg Home Prices</Button>
+                <Button outline color='primary' onClick={() => this.onClick('property tax')}>Property Tax</Button>
                     <br/>
-                <Button outline color='primary'>Education</Button>
+                <Button outline color='primary' onClick={() => this.onClick('sales tax')}>Sales Tax</Button>
+                    <br/>
+                </StyledButtonBody>
+                <DividerBlock/>
+                <StyledButtonBody>
+                <Button outline color='primary' onClick={() => this.onClick('violent crime')}>Crime</Button>
+                    <br/>
+                <Button outline color='primary' onClick={() => this.onClick('avg house value')}>Avg Home Prices</Button>
+                    <br/>
+                <Button outline color='primary' onClick={() => this.onClick('education ranking')}>Education</Button>
                     <br/>
                 </StyledButtonBody>
             </StyledButtonRow>
