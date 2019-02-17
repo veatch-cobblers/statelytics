@@ -26,6 +26,12 @@ const StyledNavItem = styled(NavLink)`
 &:hover{
     border-bottom:2px solid red;
 }
+&:active{
+    background:red;
+}
+&:focus{
+    background:#F9A1BC;
+}
 `
 
 const HeaderNav = (props) => (

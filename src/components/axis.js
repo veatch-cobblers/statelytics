@@ -1,6 +1,11 @@
 import React, {Component} from 'react'
 import {Button, ButtonGroup} from "reactstrap";
 import './axis.css';
+import styled from 'styled-components';
+
+const StyledButtons = styled(Button)`
+background-color:#F9A1BC;
+`
 
 
 

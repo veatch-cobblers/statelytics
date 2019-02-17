@@ -7,6 +7,10 @@ import MapFrame from "./components/map/map_frame";
 
 const StyledJumbo = styled(Jumbotron)`
 background:none !important;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
 `
 
 
