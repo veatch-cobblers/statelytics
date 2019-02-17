@@ -4,6 +4,8 @@ import {Container} from "reactstrap";
 import Axis from "../axis";
 import styled from "styled-components";
 import ScatterPlot from "./scatter-plot";
+import { FaLongArrowAltRight, FaLongArrowAltUp } from "react-icons/fa";
+
 
 const StyledContainer = styled(Container)`
 display: flex;
@@ -11,6 +13,11 @@ border: 1px solid black;
 border-radius:25px;
 padding: 25px;
 background: none !important;
+`
+
+const StyledLegend = styled.div`
+display: flex;
+justify-content:space-between;
 `
 
 
@@ -52,7 +59,9 @@ class ScatterplotFrame extends Component{
 
     render(){
         return(
+
             <div>
+                <FaLongArrowAltUp/>
                 <StyledContainer>
                     <div className={"outer"}>
                         <Axis axisStyle={"y_axis"} title={axis_titles[this.state.y_index]} onChange={this.onYchange} />
@@ -61,7 +70,10 @@ class ScatterplotFrame extends Component{
                         <ScatterPlot changeView={this.props.onChange} yMetric={axis_titles[this.state.x_index]} xMetric={axis_titles[this.state.y_index]}/>
                     </div>
                 </StyledContainer>
-                0 ->
+                <StyledLegend>
+                <p>0</p>
+                    <p><FaLongArrowAltRight/></p>
+                </StyledLegend>
                 <Axis axisStyle={"x_axis"} title={axis_titles[this.state.x_index]} onChange={this.onXchange}/>
             </div>
 
