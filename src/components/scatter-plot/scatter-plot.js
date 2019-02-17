@@ -145,7 +145,7 @@ class ScatterPlot extends Component{
            select(node).selectAll("circle")
                 .data(data)
                 .transition()
-                .duration(1500git)
+                .duration(1500)
                 .attr("fill", (d) => colors[d.state.toUpperCase()])
                 .attr("opacity", .2)
                 .attr("r", 20) // Change size
