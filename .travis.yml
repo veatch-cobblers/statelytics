@@ -15,5 +15,6 @@ script:
   - npm run build
 
 after_success:
+  - firebase use staging
   - firebase deploy --token $FIREBASE_TOKEN --non-interactive
   - echo "Succes - Deployed"

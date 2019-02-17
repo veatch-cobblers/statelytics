@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './components/map/unemployment_us_map.css';
 import Map from "./components/map/map";
 import {Jumbotron, Container, Button} from 'reactstrap';
-import Header from "./components/base/header";
+import HeaderNav from "./components/base/headerNav";
 
 import styled from 'styled-components';
 
@@ -17,14 +17,14 @@ class App extends Component {
   render() {
     return (
         <div>
-            <Map id={"FIPStxt"} rankingMetric={'Unemployment_rate_2008'}/>
 
-                <Header/>
+
+                <HeaderNav/>
 
             <div>
                <StyledJumbo >
                    <Container>
-                   <Map />
+                   <Map id={"FIPStxt"} rankingMetric={'Unemployment_rate_2008'}/>
                    </Container>
                </StyledJumbo>
             </div>
