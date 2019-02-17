@@ -30,9 +30,6 @@ class Map extends Component {
         select(node).selectAll('*').remove();
         var path = d3.geoPath();
 
-        var x = d3.scaleLinear()
-            .domain([1, 10])
-            .rangeRound([600, 860]);
 
         let rankingMetric = d3.map();
         Promise.all([
