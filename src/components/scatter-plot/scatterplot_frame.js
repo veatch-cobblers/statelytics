@@ -7,9 +7,11 @@ import ScatterPlot from "./scatter-plot";
 
 const StyledContainer = styled(Container)`
 display: flex;
-border: 5px solid black;
+border: 1px solid black;
 border-radius:25px;
+padding: 25px;
 `
+
 
 const axis_titles= ["Civilian labor force", "Employed", "Unemployed", "Unemployment rate", "Median Household Income", "sales tax", "property tax", "vehicle tax", "violent crime", "avg house value", "education ranking"];
 class ScatterplotFrame extends Component{
@@ -17,7 +19,7 @@ class ScatterplotFrame extends Component{
     constructor(props){
         super(props);
         this.state = {
-            y_index: 1,
+            y_index: 4,
             x_index: axis_titles.findIndex((d) => d === props.xAxis),
             year_index: 8
         };

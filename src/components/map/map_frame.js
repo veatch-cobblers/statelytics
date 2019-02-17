@@ -4,17 +4,18 @@ import Map from "./map";
 import Axis from "../axis";
 import styled from "styled-components";
 import {schemeBlues, schemeGreens, schemePurples} from "d3-scale-chromatic";
-import {schemeReds} from "d3";
+import {schemeOranges, schemeReds} from "d3";
 
 const StyledContainer = styled(Container)`
 display: flex;
-border: 5px solid black;
+border: 1px solid black;
 border-radius:25px;
+padding: 25px;
 `
 
 const y_titles = ["2007", "2008", "2009", "2010", "2012", "2013", "2014", "2015", "2016", "2017"],
-    x_titles = ["Unemployment_rate", "Employed", "Civilian_labor_force", "rape"],
-    x_colors = [schemeBlues[9], schemeGreens[9], schemePurples[9], schemeReds[9]];
+    x_titles = ["Unemployment_rate", "Employed", "Civilian_labor_force", 'Murder','Rape','Robbery','Aggrevated Assault','Burglary','Larceny','Vehicle Theft','Arson'],
+    x_colors = [schemeGreens[9],schemeBlues[9], schemePurples[9], schemeReds[9], schemeOranges[9], schemeBlues[9], schemeGreens[9], schemePurples[9], schemeReds[9], schemePurples[9], schemeReds[9]];
 
 class MapFrame extends Component {
 
@@ -63,7 +64,7 @@ class MapFrame extends Component {
                     </div>
                     <div>
                         <Map changeView={this.props.onChange} id={"FIPStxt"} color={x_colors[this.state.x_index]}
-                             rankingMetric={this.state.x_index === 3 ? x_titles[this.state.x_index] : x_titles[this.state.x_index] + '_' + y_titles[this.state.y_index]}/>
+                             rankingMetric={this.state.x_index > 2 ? x_titles[this.state.x_index] : x_titles[this.state.x_index] + '_' + y_titles[this.state.y_index]}/>
                     </div>
                 </StyledContainer>
                 <Axis axisStyle={"x_axis"} title={x_titles[this.state.x_index]} onChange={this.onXchange}/>
