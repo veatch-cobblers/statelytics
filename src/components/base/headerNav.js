@@ -1,11 +1,10 @@
 import React from 'react'
-import {Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink} from 'reactstrap';
+import {Navbar, NavbarBrand, Nav, NavItem, NavLink} from 'reactstrap';
 import styled from 'styled-components';
-import image from '../assets/trianglify.png';
 import logo from '../assets/logo_transparent.png';
 
 const StyledLogo = styled.img`
-height:200px;
+height:100px;
 `
 
 const HeaderNav = (props) => (
