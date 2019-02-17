@@ -56,7 +56,6 @@ class Category extends Component {
     }
 
     onClick(value){
-        alert(value);
         this.props.onAxisChange(value);
     }
 
@@ -69,27 +68,27 @@ class Category extends Component {
                 <StyledButtonBody>
                 <Button outline color='primary' onClick={() => this.onClick('Employed')}>Employed</Button>
                     <br/>
-                <Button outline color='primary'>Unemployed</Button>
+                <Button outline color='primary' onClick={() => this.onClick('Unemployed')}>Unemployed</Button>
                     <br/>
-                <Button outline color='primary'>Median Income</Button>
-                    <br/>
-                </StyledButtonBody>
-                <DividerBlock/>
-                <StyledButtonBody>
-                <Button outline color='primary'>Labor Force</Button>
-                    <br/>
-                <Button outline color='primary'>Tax</Button>
-                    <br/>
-                <Button outline color='primary'>Homeless Pop</Button>
+                <Button outline color='primary' onClick={() => this.onClick('Median Household Income')}>Median Income</Button>
                     <br/>
                 </StyledButtonBody>
                 <DividerBlock/>
                 <StyledButtonBody>
-                <Button outline color='primary'>Crime</Button>
+                <Button outline color='primary' onClick={() => this.onClick('Civilian labor force')}>Labor Force</Button>
                     <br/>
-                <Button outline color='primary'>Avg Home Prices</Button>
+                <Button outline color='primary' onClick={() => this.onClick('property tax')}>Property Tax</Button>
                     <br/>
-                <Button outline color='primary'>Education</Button>
+                <Button outline color='primary' onClick={() => this.onClick('sales tax')}>Sales Tax</Button>
+                    <br/>
+                </StyledButtonBody>
+                <DividerBlock/>
+                <StyledButtonBody>
+                <Button outline color='primary' onClick={() => this.onClick('violent crime')}>Crime</Button>
+                    <br/>
+                <Button outline color='primary' onClick={() => this.onClick('avg house value')}>Avg Home Prices</Button>
+                    <br/>
+                <Button outline color='primary' onClick={() => this.onClick('education ranking')}>Education</Button>
                     <br/>
                 </StyledButtonBody>
             </StyledButtonRow>
