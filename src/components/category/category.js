@@ -36,30 +36,20 @@ class Category extends Component {
             <Table>
                 <thead>
                 <tr>
-                    <th>#</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
+                    <th></th>
+                    <th></th>
+                    <th>State</th>
+                    <th>Unemployed</th>
+                    <th>Median Income</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
+                    <th></th>
+                    <th></th>
+                    <td>{this.props.selectedState.areaName}</td>
+                    <td>{this.props.selectedState.unemployed}</td>
+                    <td>{this.props.selectedState.medianIncome}</td>
                 </tr>
                 </tbody>
             </Table>
