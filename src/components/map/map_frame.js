@@ -54,7 +54,7 @@ class MapFrame extends Component{
                 <Axis axisStyle={"y_axis"} title={y_titles[this.state.y_index]} onChange={this.onYchange} />
                     </div>
                     <div>
-                    <Map id={"FIPStxt"} color={x_colors[this.state.x_index]} rankingMetric={x_titles[this.state.x_index] + '_' + y_titles[this.state.y_index]}/>
+                    <Map changeView={this.props.onChange} id={"FIPStxt"} color={x_colors[this.state.x_index]} rankingMetric={x_titles[this.state.x_index] + '_' + y_titles[this.state.y_index]}/>
                     </div>
                 </StyledContainer>
                 <Axis axisStyle={"x_axis"} title={x_titles[this.state.x_index]} onChange={this.onXchange}/>

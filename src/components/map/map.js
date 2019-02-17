@@ -30,7 +30,6 @@ class Map extends Component {
         //     .rangeRound([600, 860]);
 
         let rankingMetric = d3.map();
-
         Promise.all([
             csv(unemployed_data_csv, (d) => {
                 if (d[this.props.rankingMetric] !== undefined) {
@@ -58,9 +57,9 @@ class Map extends Component {
                     .attr("fill", function (d) {
                         return color(d.rate = parseInt(rankingMetric.get(d.id)));
                     })
-                    .on("mouseover", (d) => console.log(d))
                     .attr("d", path)
                     .append("title")
+                    .on("click", (d) => {console.log(d); return this.props.changeView(d)})
                     .text(function (d) {
                         return d.rate + "%";
                     });
