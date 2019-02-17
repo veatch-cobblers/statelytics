@@ -29,15 +29,11 @@ align-items: center;
 class Category extends Component {
 
     render() {
-        if(this.props.selectedState == null) {
-            return <h1>{"States"}</h1>;
-        } else {
         return (<StyledBody><Circle style={{opacity: .5, backgroundColor: colors[this.props.selectedState.toUpperCase()]}}>
         <StyledText>{this.props.selectedState}</StyledText>
         </Circle>
         
         </StyledBody>);
-        }
     }
   }
 
