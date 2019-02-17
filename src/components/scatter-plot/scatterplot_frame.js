@@ -10,6 +10,7 @@ display: flex;
 border: 1px solid black;
 border-radius:25px;
 padding: 25px;
+background: none !important;
 `
 
 
