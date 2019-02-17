@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import ScatterPlotFrame from './components/scatter-plot/scatterplot_frame';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import HeaderNav from "./components/base/headerNav";
+import StateFrame from "./components/scatter-plot/state_frame";
 
 ReactDOM.render(<Router>
 
@@ -14,7 +14,7 @@ ReactDOM.render(<Router>
         <HeaderNav/>
         <Route exact path="/" component={App} />
         <Route path="/country" component={App} />
-        <Route path="/state" component={ScatterPlotFrame} />
+        <Route path="/state" component={StateFrame} />
     </div>
 </Router>, document.getElementById('root'));
 

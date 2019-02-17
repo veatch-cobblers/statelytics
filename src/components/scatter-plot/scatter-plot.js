@@ -35,6 +35,10 @@ class ScatterPlot extends Component{
         this.createScatterPlot();
     }
 
+    componentWillUpdate(){
+        this.createScatter();
+    }
+
     createScatterPlot(){
         //width and height
         const node = this.node
@@ -100,7 +104,7 @@ class ScatterPlot extends Component{
 			.attr("r", 20)
 			.attr("fill", (d) => colors[d.state.toUpperCase()])
 			.attr("opacity", .5)
-			.on("click", d => this.onbuttonClick(d));
+			.on("click", (d) => {console.log(d); return this.props.changeView(d)});
 
 			circle.append("text")
 			.attr("x", (d) => xScale(d.xMetric))
@@ -115,9 +119,7 @@ class ScatterPlot extends Component{
     render(){
         return(
         	<div>
-
-
-			{this.state.openCategory ? <Category selectedState={this.state.stateProps}/> : <svg ref={node => this.node = node} width={1000} height={600}></svg>}
+			 <svg ref={node => this.node = node} width={1000} height={600}></svg>
 			</div>
         );
     }

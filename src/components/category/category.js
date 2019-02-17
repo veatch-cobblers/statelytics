@@ -29,8 +29,8 @@ align-items: center;
 class Category extends Component {
 
     render() {
-        return (<StyledBody><Circle style={{opacity: .5, backgroundColor: colors[this.props.selectedState.toUpperCase()]}}>
-        <StyledText>{this.props.selectedState}</StyledText>
+        return (<StyledBody><Circle style={{opacity: .5, backgroundColor: colors[this.props.selectedState.state.toUpperCase()]}}>
+        <StyledText>{this.props.selectedState.state}</StyledText>
         </Circle>
         
         </StyledBody>);

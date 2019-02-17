@@ -20,7 +20,7 @@ class ScatterplotFrame extends Component{
             y_index: 1,
             x_index: 0,
             year_index: 8
-        }
+        };
         this.onXchange = this.onXchange.bind(this);
         this.onYchange = this.onYchange.bind(this);
     }
@@ -46,6 +46,7 @@ class ScatterplotFrame extends Component{
         });
     }
 
+
     render(){
         return(
             <div>
@@ -54,7 +55,7 @@ class ScatterplotFrame extends Component{
                         <Axis axisStyle={"y_axis"} title={axis_titles[this.state.y_index]} onChange={this.onYchange} />
                     </div>
                     <div>
-                        <ScatterPlot yMetric={axis_titles[this.state.x_index]} xMetric={axis_titles[this.state.y_index]} year={years[this.state.year_index]}/>
+                        <ScatterPlot changeView={this.props.onChange} yMetric={axis_titles[this.state.x_index]} xMetric={axis_titles[this.state.y_index]} year={years[this.state.year_index]}/>
                     </div>
                 </StyledContainer>
                 <Axis axisStyle={"x_axis"} title={axis_titles[this.state.x_index]} onChange={this.onXchange}/>
