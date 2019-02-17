@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {csv, extent, json, max, min, select} from "d3";
+import {csv, extent, json, select} from "d3";
 import * as topojson from "topojson";
 import * as d3 from "d3";
 import unemployed_data_csv from '../../data/unemployment_income_2007_to_2017.csv';

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Container, Jumbotron} from "reactstrap";
+import {Container} from "reactstrap";
 import Map from "./map";
 import Axis from "../axis";
 import styled from "styled-components";
@@ -51,13 +51,13 @@ class MapFrame extends Component{
             <div>
                 <StyledContainer>
                     <div className={"outer"}>
-                <Axis style={"y_axis"} title={y_titles[this.state.y_index]} onChange={this.onYchange} />
+                <Axis axisStyle={"y_axis"} title={y_titles[this.state.y_index]} onChange={this.onYchange} />
                     </div>
                     <div>
                     <Map id={"FIPStxt"} color={x_colors[this.state.x_index]} rankingMetric={x_titles[this.state.x_index] + '_' + y_titles[this.state.y_index]}/>
                     </div>
                 </StyledContainer>
-                <Axis style={"x_axis"} title={x_titles[this.state.x_index]} onChange={this.onXchange}/>
+                <Axis axisStyle={"x_axis"} title={x_titles[this.state.x_index]} onChange={this.onXchange}/>
             </div>
 
         );

@@ -51,13 +51,13 @@ class ScatterplotFrame extends Component{
             <div>
                 <StyledContainer>
                     <div className={"outer"}>
-                        <Axis style={"y_axis"} title={axis_titles[this.state.y_index]} onChange={this.onYchange} />
+                        <Axis axisStyle={"y_axis"} title={axis_titles[this.state.y_index]} onChange={this.onYchange} />
                     </div>
                     <div>
                         <ScatterPlot yMetric={axis_titles[this.state.x_index]} xMetric={axis_titles[this.state.y_index]} year={years[this.state.year_index]}/>
                     </div>
                 </StyledContainer>
-                <Axis style={"x_axis"} title={axis_titles[this.state.x_index]} onChange={this.onXchange}/>
+                <Axis axisStyle={"x_axis"} title={axis_titles[this.state.x_index]} onChange={this.onXchange}/>
             </div>
 
         );

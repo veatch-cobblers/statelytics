@@ -9,7 +9,7 @@ class Axis extends Component{
 
     render() {
         return(
-                <div id={this.props.style}>
+                <div id={this.props.axisStyle}>
                 <ButtonGroup >
                     <Button onClick={() => this.props.onChange(false)}>primary</Button><span className={"title"}> {this.props.title}</span><Button onClick={() => this.props.onChange(true)}>primary</Button>
                 </ButtonGroup>
