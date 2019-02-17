@@ -16,7 +16,6 @@ ReactDOM.render(<Router>
         <Route exact path="/" component={App} />
         <Route path="/country" component={App} />
         <Route path="/state" component={ScatterPlot} />
-        <Route path="/category" component={Category} />
     </div>
 </Router>, document.getElementById('root'));
 

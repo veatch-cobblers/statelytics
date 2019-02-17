@@ -3,7 +3,6 @@ import * as d3 from 'd3';
 import data from '../../data/unemployment_income_2007_to_2017.csv';
 import {select} from "d3";
 import colors from '../../data/colors.js'
-import {Link} from 'react-router-dom';
 import Category from '../../components/category/category.js'
 
 class ScatterPlot extends Component{
