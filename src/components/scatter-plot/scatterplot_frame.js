@@ -18,7 +18,7 @@ class ScatterplotFrame extends Component{
         super(props);
         this.state = {
             y_index: 1,
-            x_index: 0,
+            x_index: axis_titles.findIndex((d) => d === props.xAxis),
             year_index: 8
         };
         this.onXchange = this.onXchange.bind(this);

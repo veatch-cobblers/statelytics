@@ -17,9 +17,10 @@ class StateFrame extends Component{
         super(props);
         this.state = {
             hiding: false,
-            stateData: {}
+            stateData: {},
+            initialXaxis: "Employed"
         };
-
+        this.changeAxis = this.changeAxis.bind(this);
         this.onchange = this.onchange.bind(this);
     }
 
@@ -39,10 +40,18 @@ class StateFrame extends Component{
 
     }
 
+    changeAxis(x_axis) {
+        this.setState({
+            hiding: false,
+            initialXaxis: x_axis
+        })
+    }
+
+
     render(){
         return(
             <StyledDiv>
-            {this.state.hiding ? <Category selectedState={this.state.stateData}/> : <ScatterplotFrame onChange={this.onchange}/>}
+            {this.state.hiding ? <Category onAxisChange={this.changeAxis} selectedState={this.state.stateData}/> : <ScatterplotFrame xAxis={this.state.initialXaxis} onChange={this.onchange}/>}
             </StyledDiv>
         );
     }

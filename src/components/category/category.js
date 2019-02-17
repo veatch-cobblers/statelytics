@@ -50,6 +50,16 @@ const DividerBlock = styled.div`
 
 class Category extends Component {
 
+    constructor(props){
+        super(props);
+        this.onClick = this.onClick.bind(this);
+    }
+
+    onClick(value){
+        alert(value);
+        this.props.onAxisChange(value);
+    }
+
     render() {
         return (<StyledBody><Circle style={{opacity: .5, backgroundColor: colors[this.props.selectedState.state.toUpperCase()]}}>
         <StyledText>{this.props.selectedState.state}</StyledText>
@@ -57,7 +67,7 @@ class Category extends Component {
             <br/>
             <StyledButtonRow>
                 <StyledButtonBody>
-                <Button outline color='primary'>Employed</Button>
+                <Button outline color='primary' onClick={() => this.onClick('Employed')}>Employed</Button>
                     <br/>
                 <Button outline color='primary'>Unemployed</Button>
                     <br/>
