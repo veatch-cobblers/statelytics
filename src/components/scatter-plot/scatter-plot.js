@@ -55,6 +55,7 @@ class ScatterPlot extends Component{
 				state: row['State'],
 				areaName: row['Area_name'],
 				unemployed: row['Unemployed_2016'],
+				employed: row['Employed_2016'],
 				medianIncome: row['Median_Household_Income_2016'],
 				yMetric: +row[yMetric].replace(/[^0-9.-]+/g, ""),
 				xMetric: +row[xMetric].replace(/[^0-9.-]+/g, "")

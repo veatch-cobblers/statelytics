@@ -1,6 +1,14 @@
 import React, {Component} from 'react'
 import Category from "../category/category";
 import ScatterplotFrame from "./scatterplot_frame";
+import styled from 'styled-components';
+
+const StyledDiv = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+`
 
 
 class StateFrame extends Component{
@@ -33,9 +41,9 @@ class StateFrame extends Component{
 
     render(){
         return(
-            <div>
+            <StyledDiv>
             {this.state.hiding ? <Category selectedState={this.state.stateData}/> : <ScatterplotFrame onChange={this.onchange}/>}
-            </div>
+            </StyledDiv>
         );
     }
 

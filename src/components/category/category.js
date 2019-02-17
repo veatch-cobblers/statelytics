@@ -39,8 +39,10 @@ class Category extends Component {
                 <tr>
                     <th></th>
                     <th></th>
+                    <th>Year</th>
                     <th>State</th>
                     <th>Unemployed</th>
+                    <th>Employed</th>
                     <th>Median Income</th>
                 </tr>
                 </thead>
@@ -48,8 +50,10 @@ class Category extends Component {
                 <tr>
                     <th></th>
                     <th></th>
+                    <th>2016</th>
                     <td>{this.props.selectedState.areaName}</td>
                     <td>{this.props.selectedState.unemployed}</td>
+                    <td>{this.props.selectedState.employed}</td>
                     <td>{this.props.selectedState.medianIncome}</td>
                 </tr>
                 </tbody>
