@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
 import {csv, extent, json, select} from "d3";
 import * as topojson from "topojson";
+
 import * as d3 from "d3";
-import unemployed_data_csv from '../../data/unemployment_income_2007_to_2017.csv';
+import unemployed_data_csv from '../../data/cleanedCounties.csv';
 
 
 class Map extends Component {
@@ -29,13 +30,14 @@ class Map extends Component {
         select(node).selectAll('*').remove();
         var path = d3.geoPath();
 
-        // var x = d3.scaleLinear()
-        //     .domain([1, 10])
-        //     .rangeRound([600, 860]);
+        var x = d3.scaleLinear()
+            .domain([1, 10])
+            .rangeRound([600, 860]);
 
         let rankingMetric = d3.map();
         Promise.all([
             csv(unemployed_data_csv, (d) => {
+                console.log(this.props.rankingMetric);
                 if (d[this.props.rankingMetric] !== undefined) {
                     let metric = +d[this.props.rankingMetric].replace(/[^0-9.-]+/g, "");
                     rankingMetric.set(d[this.props.id], metric);
