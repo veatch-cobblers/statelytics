@@ -81,18 +81,6 @@ class ScatterPlot extends Component{
 		
 		//create svg element
 
-					
-		//x axis
-		select(node).append("g")
-			.attr("class", "x axis")	
-			.attr("transform", "translate(0," + (h - padding) + ")")
-			.call(xAxis);
-		
-		//y axis
-		select(node).append("g")
-			.attr("class", "y axis")	
-			.attr("transform", "translate(" + padding + ", 0)")
-			.call(yAxis);
 			
 			var circle = select(node).selectAll("circle")
 			.data(data)
