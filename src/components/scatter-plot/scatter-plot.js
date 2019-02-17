@@ -92,6 +92,13 @@ class ScatterPlot extends Component{
                 .attr("opacity", .5)
                 .on("click", (d) => {console.log(d); return this.props.changeView(d)});
 
+            select(node).selectAll("circle")
+                .on("mouseover", function(){
+                    d3.select(this).attr("r", 30).attr("opacity", .3)
+                })
+                .on("mouseout", function(){
+                    d3.select(this).attr("r", 20).attr("opacity", .5)
+                });
 
             select(node).selectAll("text")
                 .data(data)
@@ -102,7 +109,8 @@ class ScatterPlot extends Component{
                 .attr("y", (d) => yScale(d.yMetric) + 5)
                 .text((d) => d.state)
                 .attr("text-anchor", "middle")
-                .attr("pointer-events", "none")
+                .attr("pointer-events", "none");
+
         });
     }
 
@@ -145,7 +153,7 @@ class ScatterPlot extends Component{
            select(node).selectAll("circle")
                 .data(data)
                 .transition()
-                .duration(1500git)
+                .duration(1500)
                 .attr("fill", (d) => colors[d.state.toUpperCase()])
                 .attr("opacity", .2)
                 .attr("r", 20) // Change size
@@ -161,11 +169,12 @@ class ScatterPlot extends Component{
                     .attr("r", 20)
                     .attr("fill", (d) => colors[d.state.toUpperCase()])
                     .attr("opacity", .5)
-                    .on("click", (d) => {
-                        return this.props.changeView(d)
-                    })
-
+                    .on("mouseover", () => d3.select(this).attr("r", 30).attr("opacity", .3))
+                    .on("mouseout", () => d3.select(this).attr("r", 20).attr("opacity", .5))
             });
+
+           select(node).selectAll("circle")
+               .on("click", (d) => this.props.changeView(d));
 
             select(node).selectAll("text")
                 .data(data)
