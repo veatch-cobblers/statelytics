@@ -11,7 +11,7 @@ class Axis extends Component{
         return(
                 <div id={this.props.axisStyle}>
                 <ButtonGroup >
-                    <Button onClick={() => this.props.onChange(false)}>primary</Button><span className={"title"}> {this.props.title}</span><Button onClick={() => this.props.onChange(true)}>primary</Button>
+                    <Button onClick={() => this.props.onChange(false)}>{"<"}</Button><span className={"title"}> {this.props.title}</span><Button onClick={() => this.props.onChange(true)}>{">"}</Button>
                 </ButtonGroup>
                 </div>
         );

@@ -11,11 +11,11 @@ height:100px;
 `
 
 const StyledIconCountry = styled.img`
-height:55px;
+height:58px;
 `
 
 const StyledIconState = styled.img`
-height:60px;
+height:58px;
 `
 
 const StyledNavBar = styled(Navbar)`
@@ -24,9 +24,7 @@ background:none !important;
 
 const StyledNavItem = styled(NavLink)`
 &:hover{
-    background:#d4af34;
-    border-color:black;
-    color:white;
+    border-bottom:2px solid red;
 }
 `
 

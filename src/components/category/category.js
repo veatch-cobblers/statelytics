@@ -33,6 +33,7 @@ class Category extends Component {
         return (<StyledBody><Circle style={{opacity: .5, backgroundColor: colors[this.props.selectedState.state.toUpperCase()]}}>
         <StyledText>{this.props.selectedState.state}</StyledText>
         </Circle>
+            <br/>
             <Table>
                 <thead>
                 <tr>
