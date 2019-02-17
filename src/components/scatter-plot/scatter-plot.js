@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import * as d3 from 'd3';
-import data from '../../data/unemployment_income_2007_to_2017.csv';
+import data from '../../data/cleanedStates.csv';
 import {select} from "d3";
 import colors from '../../data/colors.js'
 
@@ -44,10 +44,11 @@ class ScatterPlot extends Component{
 		var w = 1000;
 		var h = 600;
 		var padding = 75;
-		let yMetric = this.props.yMetric + '_' + this.props.year;
-        let xMetric = this.props.xMetric + '_' + this.props.year;
+		let yMetric = this.props.yMetric;
+        let xMetric = this.props.xMetric;
         console.log(yMetric);
         d3.csv(data, (row) => {
+            console.log(row);
             if(row[yMetric] !== undefined && row[xMetric] !== undefined){
 			return {
 				county_code: +row['FIPStxt'],
@@ -56,12 +57,12 @@ class ScatterPlot extends Component{
 				unemployed: row['Unemployed_2016'],
 				employed: row['Employed_2016'],
 				medianIncome: row['Median_Household_Income_2016'],
-
 				yMetric: +row[yMetric].replace(/[^0-9.-]+/g, ""),
 				xMetric: +row[xMetric].replace(/[^0-9.-]+/g, "")
 			}}
 		}
 		).then(data => {
+		    console.log(data);
 			select(node).selectAll('*').remove();
 			data = data.filter(d => (d.county_code % 1000 === 0))
 			data = data.filter(d => !(isNaN(d.yMetric) || isNaN(d.xMetric) || d.xMetric === 0))
@@ -80,18 +81,6 @@ class ScatterPlot extends Component{
 		
 		//create svg element
 
-					
-		//x axis
-		select(node).append("g")
-			.attr("class", "x axis")	
-			.attr("transform", "translate(0," + (h - padding) + ")")
-			.call(xAxis);
-		
-		//y axis
-		select(node).append("g")
-			.attr("class", "y axis")	
-			.attr("transform", "translate(" + padding + ", 0)")
-			.call(yAxis);
 			
 			var circle = select(node).selectAll("circle")
 			.data(data)

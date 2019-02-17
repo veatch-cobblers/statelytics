@@ -11,9 +11,7 @@ border: 5px solid black;
 border-radius:25px;
 `
 
-const years=  ["2007","2008", "2009", "2010", "2012", "2013", "2014", "2015", "2016", "2017"],
-    axis_titles= ["Employed", "Median_Household_Income", "Civilian_labor_force"];
-
+const axis_titles= ["Civilian labor force", "Employed", "Unemployed", "Unemployment rate", "Median Household Income", "sales tax", "property tax", "vehicle tax", "violent crime", "avg house value", "education ranking"];
 class ScatterplotFrame extends Component{
 
     constructor(props){
@@ -57,7 +55,7 @@ class ScatterplotFrame extends Component{
                         <Axis axisStyle={"y_axis"} title={axis_titles[this.state.y_index]} onChange={this.onYchange} />
                     </div>
                     <div>
-                        <ScatterPlot changeView={this.props.onChange} yMetric={axis_titles[this.state.x_index]} xMetric={axis_titles[this.state.y_index]} year={years[this.state.year_index]}/>
+                        <ScatterPlot changeView={this.props.onChange} yMetric={axis_titles[this.state.x_index]} xMetric={axis_titles[this.state.y_index]}/>
                     </div>
                 </StyledContainer>
                 <Axis axisStyle={"x_axis"} title={axis_titles[this.state.x_index]} onChange={this.onXchange}/>

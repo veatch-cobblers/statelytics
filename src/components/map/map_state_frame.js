@@ -43,4 +43,4 @@ class MapStateFrame extends Component{
 }
 
 
-export default MapStateFrame;
+export default MapStateFrame
