@@ -7,8 +7,13 @@ const StyledLogo = styled.img`
 height:100px;
 `
 
+const StyledNavBar = styled(Navbar)`
+background:none !important;
+
+`
+
 const HeaderNav = (props) => (
-    <Navbar color="light" light>
+    <StyledNavBar>
         <NavbarBrand href="/">
             <StyledLogo src={logo}/>
         </NavbarBrand>
@@ -24,7 +29,7 @@ const HeaderNav = (props) => (
             </NavItem>
 
         </Nav>
-    </Navbar>
+    </StyledNavBar>
 )
 
 export default HeaderNav;
