@@ -7,6 +7,8 @@ import {schemeBlues, schemeGreens, schemePurples} from "d3-scale-chromatic";
 
 const StyledContainer = styled(Container)`
 display: flex;
+border: 5px solid black;
+border-radius:25px;
 `
 
 const y_titles=  ["2007","2008", "2009", "2010", "2012", "2013", "2014", "2015", "2016", "2017"],
@@ -49,10 +51,12 @@ class MapFrame extends Component{
     render(){
         return(
             <div>
+
                 <StyledContainer>
                     <div className={"outer"}>
-                <Axis axisStyle={"y_axis"} title={y_titles[this.state.y_index]} onChange={this.onYchange} />
+                        <Axis axisStyle={"y_axis"} title={y_titles[this.state.y_index]} onChange={this.onYchange} />
                     </div>
+
                     <div>
                     <Map changeView={this.props.onChange} id={"FIPStxt"} color={x_colors[this.state.x_index]} rankingMetric={x_titles[this.state.x_index] + '_' + y_titles[this.state.y_index]}/>
                     </div>
