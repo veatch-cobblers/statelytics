@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Container, Jumbotron} from "reactstrap";
+import {Container} from "reactstrap";
 // import Map from "./map";
 import Axis from "../axis";
 import styled from "styled-components";
