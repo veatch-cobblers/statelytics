@@ -22,7 +22,7 @@ class Map extends Component {
 
     createMap() {
         const node = this.node;
-
+        select(node).selectAll('*').remove();
         var path = d3.geoPath();
 
         // var x = d3.scaleLinear()

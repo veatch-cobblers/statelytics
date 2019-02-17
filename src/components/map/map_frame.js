@@ -8,7 +8,7 @@ const StyledContainer = styled(Container)`
 display: flex;
 `
 
-const y_titles=  ["2008", "2009", "2010", "2012"],
+const y_titles=  ["2007","2008", "2009", "2010", "2012", "2013", "2014", "2015", "2016", "2017"],
     x_titles= ["Unemployment_rate", "other", "STEPHEN", "ANDREW"];
 
 class MapFrame extends Component{
@@ -25,20 +25,20 @@ class MapFrame extends Component{
 
     onXchange(dir){
         let value = this.state.x_index + (dir === true ? 1 : -1);
-        if(value >= x_titles.length){
-            value = 0;
+        if(value === x_titles.length || value < 0){
+            value = value < 0 ? (x_titles.length - 1) : 0;
         }
         this.setState({
             x_index: value
         });
-        this.refreshShoeList();
     }
 
     onYchange(dir){
         let value = this.state.y_index + (dir === true ? 1 : -1);
-        if(value >= y_titles.length){
-            value = 0;
+        if(value === y_titles.length || value < 0){
+            value = value < 0 ? (y_titles.length - 1) : 0;
         }
+        console.log(value);
         this.setState({
             y_index: value
         });
