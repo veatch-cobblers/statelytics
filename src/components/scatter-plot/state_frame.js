@@ -43,7 +43,7 @@ class StateFrame extends Component{
     changeAxis(x_axis) {
         this.setState({
             hiding: false,
-            initialXaxis: x_axis
+            initialXaxis: x_axis === "" ? this.state.initialXaxis : x_axis
         })
     }
 

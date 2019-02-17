@@ -65,7 +65,7 @@ class Category extends Component {
     }
 
     render() {
-        return (<StyledBody><Circle style={{opacity: .5, backgroundColor: colors[this.props.selectedState.state.toUpperCase()]}}>
+        return (<StyledBody><Circle onClick={() => this.onClick("")} style={{opacity: .5, backgroundColor: colors[this.props.selectedState.state.toUpperCase()]}}>
         <StyledAreaCodeText>{this.props.selectedState.state}</StyledAreaCodeText>
             <StyledAreaNameText>{this.props.selectedState.areaName}</StyledAreaNameText>
         </Circle>
