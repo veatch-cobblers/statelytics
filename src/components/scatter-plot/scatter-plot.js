@@ -41,25 +41,29 @@ class ScatterPlot extends Component{
 		var w = 1000;
 		var h = 600;
 		var padding = 75;
-		d3.csv(data, (row) => {
+		let yMetric = this.props.yMetric + '_' + this.props.year;
+        let xMetric = this.props.xMetric + '_' + this.props.year;
+        console.log(yMetric);
+        d3.csv(data, (row) => {
+            if(row[yMetric] !== undefined && row[xMetric] !== undefined){
 			return {
 				county_code: +row['FIPStxt'],
 				state: row['State'],
-				employed: +row['Employed_2016'].replace(/[^0-9.-]+/g, ""),
-				median_income: +row['Median_Household_Income_2016'].replace(/[^0-9.-]+/g, "")
-			}
+				yMetric: +row[yMetric].replace(/[^0-9.-]+/g, ""),
+				xMetric: +row[xMetric].replace(/[^0-9.-]+/g, "")
+			}}
 		}
 		).then(data => {
-			
+			select(node).selectAll('*').remove();
 			data = data.filter(d => (d.county_code % 1000 === 0))
-			data = data.filter(d => !(isNaN(d.employed) || isNaN(d.median_income) || d.median_income === 0))
+			data = data.filter(d => !(isNaN(d.yMetric) || isNaN(d.xMetric) || d.xMetric === 0))
 			
 			var xScale = d3.scaleLinear()
-			.domain(d3.extent(data, function(d) { return d.median_income; }))
+			.domain(d3.extent(data, function(d) { return d.xMetric; }))
 			.range([padding, w - padding * 2]);
 			
 		var yScale = d3.scaleLinear()
-			.domain(d3.extent(data, function(d) { return d.employed; }))
+			.domain(d3.extent(data, function(d) { return d.yMetric; }))
 			.range([h - padding, padding]);
 		
 		var xAxis = d3.axisBottom().scale(xScale);
@@ -88,10 +92,10 @@ class ScatterPlot extends Component{
 			circle.append("circle")
 			.attr("class", "dot")
 			.attr("cx", function(d) {
-				return xScale(d.median_income);
+				return xScale(d.xMetric);
 			})
 			.attr("cy", function(d) {
-				return yScale(d.employed);
+				return yScale(d.yMetric);
 			})
 			.attr("r", 20)
 			.attr("fill", (d) => colors[d.state.toUpperCase()])
@@ -99,9 +103,10 @@ class ScatterPlot extends Component{
 			.on("click", d => this.onbuttonClick(d));
 
 			circle.append("text")
-			.attr("x", (d) => xScale(d.median_income))
-			.attr("y", (d) => yScale(d.employed) + 5)
-			.text((d) => d.state.toUpperCase()) 
+			.attr("x", (d) => xScale(d.xMetric))
+			.attr("y", (d) => yScale(d.yMetric) + 5)
+			.text((d) => d.state) 
+
 			.attr("text-anchor", "middle") 
 			.attr("pointer-events", "none")
 		});
