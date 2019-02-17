@@ -1,13 +1,15 @@
 import React, {Component} from 'react'
+import {Container} from "reactstrap";
 import Map from "./map";
 import Axis from "../axis";
-import {schemeBlues, schemeGreens, schemePurples} from "d3-scale-chromatic";
 import styled from "styled-components";
-import {Container} from "reactstrap";
+import {schemeBlues, schemeGreens, schemePurples} from "d3-scale-chromatic";
 import {schemeReds} from "d3";
 
 const StyledContainer = styled(Container)`
 display: flex;
+border: 5px solid black;
+border-radius:25px;
 `
 
 const y_titles = ["2007", "2008", "2009", "2010", "2012", "2013", "2014", "2015", "2016", "2017"],

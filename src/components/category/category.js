@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
 import colors from '../../data/colors.js'
-import {Table} from "reactstrap";
+import {Button} from 'reactstrap';
 
 const Circle = styled.div`
 height: 250px;
@@ -27,6 +27,27 @@ justify-content: center;
 align-items: center;
 `
 
+const StyledButtonBody = styled.div`
+display: flex;
+flex-direction: column;
+justify-content:space-around;
+align-items:space-around;
+`
+
+const StyledButtonRow = styled.div`
+display:flex;
+flex-direction:row;
+justify-content:space-around;
+align-items:space-around;
+`
+
+const DividerBlock = styled.div`
+    width:15px;
+    height:auto;
+    display:inline-block;
+ `
+
+
 class Category extends Component {
 
     render() {
@@ -34,30 +55,34 @@ class Category extends Component {
         <StyledText>{this.props.selectedState.state}</StyledText>
         </Circle>
             <br/>
-            <Table>
-                <thead>
-                <tr>
-                    <th></th>
-                    <th></th>
-                    <th>Year</th>
-                    <th>State</th>
-                    <th>Unemployed</th>
-                    <th>Employed</th>
-                    <th>Median Income</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th></th>
-                    <th></th>
-                    <th>2016</th>
-                    <td>{this.props.selectedState.areaName}</td>
-                    <td>{this.props.selectedState.unemployed}</td>
-                    <td>{this.props.selectedState.employed}</td>
-                    <td>{this.props.selectedState.medianIncome}</td>
-                </tr>
-                </tbody>
-            </Table>
+            <StyledButtonRow>
+                <StyledButtonBody>
+                <Button outline color='primary'>Employed</Button>
+                    <br/>
+                <Button outline color='primary'>Unemployed</Button>
+                    <br/>
+                <Button outline color='primary'>Median Income</Button>
+                    <br/>
+                </StyledButtonBody>
+                <DividerBlock/>
+                <StyledButtonBody>
+                <Button outline color='primary'>Labor Force</Button>
+                    <br/>
+                <Button outline color='primary'>Tax</Button>
+                    <br/>
+                <Button outline color='primary'>Homeless Pop</Button>
+                    <br/>
+                </StyledButtonBody>
+                <DividerBlock/>
+                <StyledButtonBody>
+                <Button outline color='primary'>Crime</Button>
+                    <br/>
+                <Button outline color='primary'>Avg Home Prices</Button>
+                    <br/>
+                <Button outline color='primary'>Education</Button>
+                    <br/>
+                </StyledButtonBody>
+            </StyledButtonRow>
         </StyledBody>);
     }
   }

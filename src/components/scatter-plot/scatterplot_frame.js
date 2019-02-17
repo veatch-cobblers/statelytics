@@ -7,6 +7,8 @@ import ScatterPlot from "./scatter-plot";
 
 const StyledContainer = styled(Container)`
 display: flex;
+border: 5px solid black;
+border-radius:25px;
 `
 
 const axis_titles= ["Civilian labor force", "Employed", "Unemployed", "Unemployment rate", "Median Household Income", "sales tax", "property tax", "vehicle tax", "violent crime", "avg house value", "education ranking"];
