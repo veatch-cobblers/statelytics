@@ -4,6 +4,8 @@ import {Jumbotron} from 'reactstrap';
 import HeaderNav from "./components/base/headerNav";
 import styled from 'styled-components';
 import MapFrame from "./components/map/map_frame";
+import ScatterplotFrame from "./components/scatter-plot/scatterplot_frame";
+
 
 const StyledJumbo = styled(Jumbotron)`
 background:none !important;
@@ -21,7 +23,8 @@ class App extends Component {
 
             <div>
                 <StyledJumbo>
-                  <MapFrame />
+                  {/*<MapFrame />*/}
+                  <ScatterplotFrame/>
                 </StyledJumbo>
             </div>
         </div>
