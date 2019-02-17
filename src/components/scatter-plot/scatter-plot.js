@@ -145,7 +145,7 @@ class ScatterPlot extends Component{
            select(node).selectAll("circle")
                 .data(data)
                 .transition()
-                .duration(4500)
+                .duration(1500git)
                 .attr("fill", (d) => colors[d.state.toUpperCase()])
                 .attr("opacity", .2)
                 .attr("r", 20) // Change size
@@ -170,7 +170,7 @@ class ScatterPlot extends Component{
             select(node).selectAll("text")
                 .data(data)
                 .transition()
-                .duration(4500)
+                .duration(1500)
                 .attr("x", (d) => xScale(d.xMetric))
                 .attr("y", (d) => yScale(d.yMetric) + 5)
                 .ease(d3.easeElasticOut)
