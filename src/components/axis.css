@@ -1,0 +1,35 @@
+#y_axis {
+    font-size: x-large;
+    padding-bottom: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+    -webkit-transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+    transform:  translateX(-50%) translateY(-50%) rotate(-90deg);
+}
+
+#x_axis{
+    font-size: x-large;
+    margin: auto;
+    width: 100%;
+    padding: 30px;
+    text-align: center;
+}
+
+.outer {
+    background-color: pink;
+    position: relative;
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.axisParent{
+    overflow:hidden;
+}
+
+.title{
+    margin: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+}
