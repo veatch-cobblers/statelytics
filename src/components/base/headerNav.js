@@ -26,7 +26,7 @@ const HeaderNav = (props) => (
                 <NavLink tag={Link} to="/state">State</NavLink>
             </NavItem>
             <NavItem>
-                <NavLink>Category</NavLink>
+                <NavLink tag={Link} to="/category">Category</NavLink>
             </NavItem>
 
         </Nav>

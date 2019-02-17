@@ -7,6 +7,7 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import HeaderNav from "./components/base/headerNav";
+import Category from './components/category/category';
 
 ReactDOM.render(<Router>
 
@@ -15,6 +16,7 @@ ReactDOM.render(<Router>
         <Route exact path="/" component={App} />
         <Route path="/country" component={App} />
         <Route path="/state" component={ScatterPlot} />
+        <Route path="/category" component={Category} />
     </div>
 </Router>, document.getElementById('root'));
 
