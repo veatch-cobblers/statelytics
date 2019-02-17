@@ -7,7 +7,6 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import HeaderNav from "./components/base/headerNav";
-import Category from './components/category/category';
 
 ReactDOM.render(<Router>
 
