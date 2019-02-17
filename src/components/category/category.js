@@ -15,9 +15,14 @@ height: 250px;
  align-items: center;
 `
 
-const StyledText = styled.p`
+const StyledAreaCodeText = styled.p`
 font-size: 60px;
 color: white;
+`
+
+const StyledAreaNameText = styled.p`
+color:white;
+font-size:30px;
 `
 
 const StyledBody = styled.div`
@@ -61,7 +66,8 @@ class Category extends Component {
 
     render() {
         return (<StyledBody><Circle style={{opacity: .5, backgroundColor: colors[this.props.selectedState.state.toUpperCase()]}}>
-        <StyledText>{this.props.selectedState.state}</StyledText>
+        <StyledAreaCodeText>{this.props.selectedState.state}</StyledAreaCodeText>
+            <StyledAreaNameText>{this.props.selectedState.areaName}</StyledAreaNameText>
         </Circle>
             <br/>
             <StyledButtonRow>
