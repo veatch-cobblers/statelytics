@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as d3 from 'd3';
 import data from '../../data/unemployment_income_2007_to_2017.csv';
 import {select} from "d3";
+import colors from '../../data/colors.js'
 
 class ScatterPlot extends Component{
 
@@ -81,14 +82,19 @@ class ScatterPlot extends Component{
 				return yScale(d.yMetric);
 			})
 			.attr("r", 20)
-			.attr("fill", "green")
+			.attr("fill", (d) => colors[d.state.toUpperCase()])
 			.attr("opacity", .5)
+			.on("click", function(d) {
+				alert(d.state);
+			});
 
 			circle.append("text")
 			.attr("x", (d) => xScale(d.xMetric))
 			.attr("y", (d) => yScale(d.yMetric) + 5)
 			.text((d) => d.state) 
+
 			.attr("text-anchor", "middle") 
+			.attr("pointer-events", "none")
 		});
     }
 	
