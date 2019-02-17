@@ -3,7 +3,6 @@ import * as d3 from 'd3';
 import data from '../../data/unemployment_income_2007_to_2017.csv';
 import {select} from "d3";
 import colors from '../../data/colors.js'
-import Category from '../../components/category/category.js'
 
 class ScatterPlot extends Component{
 
@@ -55,6 +54,7 @@ class ScatterPlot extends Component{
 				state: row['State'],
 				areaName: row['Area_name'],
 				unemployed: row['Unemployed_2016'],
+				employed: row['Employed_2016'],
 				medianIncome: row['Median_Household_Income_2016'],
 
 				yMetric: +row[yMetric].replace(/[^0-9.-]+/g, ""),
